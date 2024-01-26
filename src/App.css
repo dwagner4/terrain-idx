@@ -1,0 +1,23 @@
+#nda {
+  position:fixed;
+  bottom: 3%;
+  left: 45%;
+  background-color: black;
+  color: antiquewhite;
+  z-index: 99;
+  padding: 40px;
+}
+
+#menu {
+  position:fixed;
+  top: 0;
+  left: 0;
+  background-color: black;
+  color: antiquewhite;
+  z-index: 99;
+  padding: 20px;
+}
+
+#menu :hover {
+  cursor: pointer
+}
