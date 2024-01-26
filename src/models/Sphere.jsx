@@ -40,18 +40,20 @@ export const Sphere = ({position, scale }) => {
 
     const sphereActor = useActorRef((createMachine(sphereLogic)));
 
-    sphereActor.subscribe((snapshot) => {
-        sphere.current.position.y = snapshot.context.yPosition
-    })
+    // sphereActor.subscribe((snapshot) => {
+    //     sphere.current.position.y = snapshot.context.yPosition
+    // })
     
     const clickhandler = () => {
         sphereActor.send({type: 'CLK'})
     }
 
     return (
-            <mesh onClick={clickhandler} ref={sphere} position={position} scale={scale} >
-                <meshStandardMaterial />
+        <RigidBody colliders="ball" position={position} >
+            <mesh onClick={clickhandler} ref={sphere} scale={scale}  >
+                <meshStandardMaterial wireframe/>
                 <sphereGeometry radius={5} />
             </mesh>
+        </RigidBody>
     );
 };
