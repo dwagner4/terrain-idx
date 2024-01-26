@@ -12,9 +12,9 @@ export const Experience = () => {
       <OrbitControls />
       <directionalLight color="#ffffff" position={[0, 5, 5]} intensity={2} />
       <ambientLight color="#ffdddd" intensity={0.5} />
-      <Physics debug>
+      <Physics>
         
-        <Sphere position={[ 3, 2, 0]} scale={2}/> 
+        <Sphere position={[ 3, 5, 0]} scale={2}/> 
         
 
         <Terrain 

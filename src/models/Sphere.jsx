@@ -51,7 +51,7 @@ export const Sphere = ({position, scale }) => {
     return (
         <RigidBody colliders="ball" position={position} >
             <mesh onClick={clickhandler} ref={sphere} scale={scale}  >
-                <meshStandardMaterial wireframe/>
+                <meshStandardMaterial/>
                 <sphereGeometry radius={5} />
             </mesh>
         </RigidBody>
