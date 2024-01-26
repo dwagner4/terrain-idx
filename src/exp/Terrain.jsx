@@ -1,7 +1,7 @@
 import * as THREE from "three";
 import { HeightfieldCollider, RigidBody } from '@react-three/rapier'
 
-export const Terrain = ({position, scale, xdemension, ydemension, xsubdivs, ysubdivs }) => {
+export const Terrain = ({position, hscale, xdemension, ydemension, xsubdivs, ysubdivs }) => {
 
     // utility function to transpose vertex from a rotated plane to the Rapier HeightfieldCollider
     const transposePointPlaneToCollider = (idx, xdem, ydem) => {
@@ -17,13 +17,13 @@ export const Terrain = ({position, scale, xdemension, ydemension, xsubdivs, ysub
         color: 'yellow'
     })
 
-    const geom = new THREE.PlaneGeometry( xdemension, ydemension, xsubdivs, ysubdivs).rotateX(-Math.PI/2)
+    const geom = new THREE.PlaneGeometry( xdemension, ydemension, xsubdivs, ysubdivs ).rotateX(-Math.PI/2)
 
     //adjust Y randomly in plane geometry
     const pos = geom.getAttribute('position')
     const heights = new Float32Array(pos.count)
     for( let i=0; i<pos.count; i++ ) {
-        const h = Math.random() * 1
+        const h = Math.random() * hscale
         pos.setY(i, h)
     }
 
@@ -35,17 +35,13 @@ export const Terrain = ({position, scale, xdemension, ydemension, xsubdivs, ysub
     // calculate the heights array for the HeightfieldCollider
     for( let i=0; i<pos.count; i++ ) {
         const nextValue = pos.getY(i)
-        const newClliderIdx = transposePointPlaneToCollider(i, xdemension + 1, ydemension + 1 )
+        const newClliderIdx = transposePointPlaneToCollider(i, xsubdivs + 1, ysubdivs + 1 )
         // console.log(nextValue)
         heights[ newClliderIdx ] = nextValue
     }
 
 
     const scaleR = new THREE.Vector3(xdemension, 1, ydemension)
-
-    
-
-    
 
     return (
         <>

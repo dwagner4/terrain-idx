@@ -19,11 +19,11 @@ export const Experience = () => {
 
         <Terrain 
           position={[ 0, 0, 0]} 
-          scale={10} 
-          xdemension={100}
-          ydemension={150}
-          xsubdivs={100}
-          ysubdivs={150}
+          hscale={0.5} 
+          xdemension={10}
+          ydemension={15}
+          xsubdivs={20}
+          ysubdivs={30}
         /> 
 
       </Physics>
