@@ -40,17 +40,12 @@ export const Terrain = ({position, hscale, xdemension, ydemension, xsubdivs, ysu
         heights[ newClliderIdx ] = nextValue
     }
 
-
     const scaleR = new THREE.Vector3(xdemension, 1, ydemension)
 
     return (
-        <>
-        
         <RigidBody colliders={ false }>
             <HeightfieldCollider args={[ ysubdivs, xsubdivs, heights, scaleR ]} />
             <primitive object={mesh} position={[0,0,0]} />
         </RigidBody>
-
-        </>
     )
 }

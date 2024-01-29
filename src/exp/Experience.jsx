@@ -2,6 +2,7 @@
 
 import { OrbitControls } from "@react-three/drei";
 import { Sphere } from '../models/Sphere.jsx'
+import { SphereMob } from '../models/SphereMob.jsx'
 import { Terrain } from './Terrain.jsx'
 import { Physics, RigidBody, } from '@react-three/rapier'
 
@@ -14,7 +15,8 @@ export const Experience = () => {
       <ambientLight color="#ffdddd" intensity={0.5} />
       <Physics>
         
-        <Sphere position={[ 3, 5, 0]} scale={2}/> 
+        {/* <Sphere position={[ 3, 5, 0]} scale={2}/>  */}
+        <SphereMob number={100} />
         
 
         <Terrain 
