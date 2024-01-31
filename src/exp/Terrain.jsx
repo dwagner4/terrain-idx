@@ -44,7 +44,7 @@ export const Terrain = ({position, hscale, xdemension, ydemension, xsubdivs, ysu
 
     return (
         <RigidBody colliders={ false }>
-            <HeightfieldCollider args={[ ysubdivs, xsubdivs, heights, scaleR ]} />
+            <HeightfieldCollider args={[ ysubdivs, xsubdivs, heights, scaleR ]} restitution={0.5} />
             <primitive object={mesh} position={[0,0,0]} />
         </RigidBody>
     )
